@@ -8,6 +8,7 @@ body, input, textarea, select {
   -moz-osx-font-smoothing: grayscale;
   font-size: 14px;
 }
+*{ box-sizing: border-box; margin: 0; padding: 0;}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -18,26 +19,40 @@ code {
   background: #412d58; height: 100vh;
 }
 
-.pageTitle{ font-size: 18px; font-weight: 300; color: #fff;}
+.pageTitle{ font-size: 18px; font-weight: 300; color: #fff; padding: 10px 0;}
 
 .appContainer{max-width: 100%; padding: 10px; box-sizing: border-box; position: relative; padding-bottom: 50px; width: 100%; margin: 0px auto; }
-.appContainer .appNavigation{ position: fixed; bottom:0; left: 0; height: 50px; background: #ebebeb; border-top: 1px solid #8842d9; width: 100%; background: #662aab;}
+.appContainer .appNavigation{ position: fixed; z-index: 9; bottom:0; left: 0; height: 50px; background: #ebebeb; border-top: 1px solid #8842d9; width: 100%; background: #662aab;}
 .appContainer .appNavigation ul{ margin: 0; padding: 0; list-style: none; display: flex;  align-items: center; justify-content: space-between; height: 50px; margin-top: -1px;}
 .appContainer .appNavigation ul li a{ padding: 10px 20px; color:#fff; font-size: 16px;}
 .appContainer .appNavigation ul li{ height: 50px; display: flex; align-items: center;}
 .appContainer .appNavigation ul li.active{ background: #8842d9;}
 
-
-.contactSearch{ position: relative;}
-.contactSearch .contactInput{ width: 100%; padding: 8px 30px 8px 8px; box-sizing: border-box; border-radius: 5px; background: #4a3464; border:1px solid #513a6c; color: #fff;}
-.contactSearch .contactInput:focus{ outline: none;}
-.contactSearch .contactButton{ width: 30px; padding: 7px; box-sizing: border-box; position: absolute; right: 1px; top:3px; border:none; background: transparent; color:#DDCDF4; font-size: 14px;}
+.contactPgae{ position: relative;}
+.addContact{ position:absolute; right:0px; top:5px; font-size: 13px; padding: 3px 10px; color: #fff; display: flex; align-items: center; justify-content: space-between; width: 85px; background: #662aab; border-radius: 5px;}
+.addContact .addIcon{ font-size: 18px;}
+.contactPgae .contactSearch{ position: relative;}
+.contactPgae .contactSearch .contactInput{ width: 100%; padding: 8px 30px 8px 8px; box-sizing: border-box; border-radius: 5px; background: #4a3464; border:1px solid #513a6c; color: #fff;}
+.contactPgae .contactSearch .contactInput:focus{ outline: none;}
+.contactPgae .contactSearch .contactButton{ width: 30px; padding: 7px; box-sizing: border-box; position: absolute; right: 1px; top:3px; border:none; background: transparent; color:#DDCDF4; font-size: 14px;}
 
 ul.contactList{ margin: 10px 0; padding: 0; list-style: none; text-align: left; height: calc(100vh - 170px); overflow: auto;}
 ul.contactList li{ margin: 0 0 5px; padding: 8px 40px 8px 8px; cursor: pointer; color: #fcfaff; border-bottom: 1px solid #4d3568; position: relative;}
 ul.contactList li .arrow{ position: absolute; right:10px; top:0; bottom:0; margin: auto; display: flex; align-items: center; font-size: 10px; color: #DDCDF4;}
 ul.contactList li small{ color: #DDCDF4;}
 
+.contactDetailModal{ width: 300px; max-height: 200px; border-radius: 5px; background: #fff; position: fixed; top:0; bottom:0; left:0; right:0; margin:auto; overflow: hidden; z-index: 3;}
+.contactDetailModal .modalClose{ position: absolute; z-index: 4; top:0px; right:0px; cursor: pointer; padding: 0 5px; font-size: 30px; font-weight: 300; color: #000; transform: rotate(45deg); cursor: pointer; width:40px; height: 40px; box-sizing: border-box; text-align: center;}
+.contactDetailModal::before{ content: ''; display: block; position: fixed; top:0; left: 0; width: 100vw; height: calc(100vh - 50px); z-index: 2; background: #412d58; opacity: 0.5;}
+.contactDetailModal .contactNameNumber{ padding: 15px; height: 150px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; flex-direction: column; position: relative; background: #fff; z-index: 3;}
+.contactDetailModal .contactNameNumber .contactName{ font-size: 24px; font-weight: 400;}
+.contactDetailModal .contactNameNumber .contactNumber{ font-size: 14px; font-weight: 400; margin-top: 10px; font-style: italic;}
+.contactDetailModal .contactActions{ position: absolute; bottom: 0; left: 0; width: 100%; background: #662aab; position: relative; z-index: 3;}
+.contactDetailModal .contactActions ul{ margin: 0; padding: 0; list-style: none; display: flex; align-items: center; justify-content: space-between;}
+.contactDetailModal .contactActions ul li{padding: 15px; color: #fff; width: 33%; font-size: 16px;}
+
+.showModal{ display: block;}
+.hideModal{ display: none;}
 
 ::placeholder {
   color: #DDCDF4;
